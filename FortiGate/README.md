@@ -1,4 +1,4 @@
-# 🔐 VPN Site-to-Site con FortiGate
+# VPN Site-to-Site con FortiGate
 
 ## Objetivo
 
