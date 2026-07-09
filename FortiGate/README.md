@@ -1,10 +1,19 @@
-# FortiGate Labs
+# VPN Site-to-Site con FortiGate
 
-En esta carpeta documento los laboratorios realizados con FortiGate.
+## Topología
 
-## Laboratorios
+![Topología](Topologia.png)
 
-- VPN Site-to-Site
-- VLAN
-- Firewall Policies
-- DHCP
+## Objetivo
+
+Implementar una VPN IPsec Site-to-Site entre dos sedes utilizando FortiGate.
+
+## Herramientas
+
+- FortiGate
+- PnetLab
+- FortiOS CLI
+
+## Resultado
+
+La VPN se estableció correctamente y ambas redes pudieron comunicarse mediante pruebas de conectividad.
