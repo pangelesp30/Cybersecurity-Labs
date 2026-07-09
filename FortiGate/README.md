@@ -1,38 +1,69 @@
-# VPN Site-to-Site con FortiGate
+# 🔐 VPN Site-to-Site con FortiGate
 
 ## Objetivo
 
-Implementar una VPN IPsec Site-to-Site entre dos sedes utilizando FortiGate, permitiendo únicamente el acceso a servicios web (HTTP y HTTPS) entre ambas redes.
+Implementar una VPN IPsec Site-to-Site entre dos sedes utilizando FortiGate, permitiendo únicamente el acceso a los servicios web (HTTP y HTTPS) a través del túnel VPN.
+
+---
 
 ## Topología
 
 ![Topología](Topologia.png)
 
+---
+
 ## Tecnologías utilizadas
 
 - FortiGate
 - FortiOS CLI
-- PnetLab
 - VPN IPsec
+- PnetLab
 - Firewall Policies
+
+---
 
 ## Configuración realizada
 
-- Configuración de la VPN IPsec entre ambas sedes.
-- Creación de las políticas de firewall necesarias para permitir el tráfico.
-- Configuración de las rutas para el envío del tráfico a través del túnel VPN.
+- Configuración del túnel VPN IPsec entre ambas sedes.
+- Creación de las políticas de firewall.
+- Configuración de las rutas necesarias para el tráfico entre redes.
 - Restricción del acceso únicamente a los servicios HTTP y HTTPS.
 
-## Validación
+---
 
-Se verificó que la comunicación entre las sedes se realizara correctamente mediante acceso web (HTTP y HTTPS).
+## Validación de la conectividad
 
-Las pruebas de **ping (ICMP)** fallaron de forma intencional, ya que este protocolo no fue incluido en las políticas de firewall configuradas para la VPN. Esto demuestra que únicamente se permitió el tráfico definido en las reglas de seguridad, cumpliendo con el principio de mínimo privilegio.
+### Acceso Web
+
+La comunicación entre las sedes se logró correctamente mediante el acceso a los servicios **HTTP** y **HTTPS**, ya que las políticas de firewall permitían únicamente estos protocolos a través del túnel VPN.
+
+![Conexión Web](Conexión Vía Web.png)
+
+---
+
+### Prueba de Ping
+
+Las pruebas de **ICMP (Ping)** fallaron de forma intencional. Esto se debe a que el protocolo ICMP no fue permitido en las políticas de firewall configuradas para la VPN.
+
+El comportamiento confirma que únicamente el tráfico autorizado (HTTP y HTTPS) puede atravesar el túnel VPN, aplicando el principio de **mínimo privilegio**.
+
+![Ping Fallido](Ping Fallido.png)
+
+---
 
 ## Resultado
 
-Acceso web (HTTP/HTTPS): Permitido.
+VPN IPsec establecida correctamente.
 
-Ping (ICMP): Bloqueado por las políticas de firewall.
+Acceso mediante HTTP y HTTPS permitido.
 
-El laboratorio cumplió con el objetivo de establecer una comunicación segura entre ambas redes, permitiendo únicamente los servicios autorizados a través del túnel VPN.
+Las políticas de firewall controlan el tráfico autorizado.
+
+El tráfico ICMP permanece bloqueado según la configuración de seguridad.
+
+## Lecciones aprendidas
+
+- Comprendí la importancia de definir políticas de firewall específicas para cada servicio.
+- Verifiqué que una VPN no implica permitir todo el tráfico entre redes.
+- Aprendí a validar el funcionamiento del túnel mediante pruebas de conectividad controladas.
+- Apliqué el principio de mínimo privilegio permitiendo únicamente HTTP y HTTPS.
