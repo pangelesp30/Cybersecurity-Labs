@@ -37,7 +37,7 @@ Implementar una VPN IPsec Site-to-Site entre dos sedes utilizando FortiGate, per
 
 La comunicación entre las sedes se logró correctamente mediante el acceso a los servicios **HTTP** y **HTTPS**, ya que las políticas de firewall permitían únicamente estos protocolos a través del túnel VPN.
 
-![Conexión Web](Conexión Vía Web.png)
+![Conexión Web](ConexiónVíaWeb.png)
 
 ---
 
@@ -47,7 +47,7 @@ Las pruebas de **ICMP (Ping)** fallaron de forma intencional. Esto se debe a que
 
 El comportamiento confirma que únicamente el tráfico autorizado (HTTP y HTTPS) puede atravesar el túnel VPN, aplicando el principio de **mínimo privilegio**.
 
-![Ping Fallido](Ping Fallido.png)
+![Ping Fallido](PingFallido.png)
 
 ---
 
